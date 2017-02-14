@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NDK.Framework;
 
 namespace NDK.DemoForm {
+
 	public partial class MainForm : PluginForm {
 
 		#region Constructors.
@@ -18,17 +19,69 @@ namespace NDK.DemoForm {
 		} // MainForm
 		#endregion
 
-		#region Override methods.
+		#region Override and event handling methods.
 		/// <summary>
-		/// Initialize the application.
+		/// Initialize the application and form.
 		/// </summary>
 		protected override void OnLoad(EventArgs e) {
 			// Invoke base method.
 			base.OnLoad(e);
 
+			// Initialize the form.
+			this.OnLog += OnLogHandler;
+			this.pluginList.Format += this.PluginListFormat;
+			this.pluginList.DataSource = this.Plugins;
+
 			// Log.
 			this.Log("The form is initialized.");
 		} // OnLoad
+
+		/// <summary>
+		/// Format the display text in the plugin list.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The event arguments.</param>
+		private void PluginListFormat(Object sender, ListControlConvertEventArgs e) {
+			try {
+				IPlugin plugin = (IPlugin)e.ListItem;
+				e.Value = String.Format("{0}  {1}", plugin.GetGuid(), plugin.GetName());
+			} catch { }
+		} // PluginListFormat
+
+		/// <summary>
+		/// Invoke the Run method on the selected plugin.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The event arguments.</param>
+		private void PluginRunClick(Object sender, EventArgs e) {
+			// Disable controls.
+			pluginList.Enabled = false;
+			pluginRun.Enabled = false;
+
+			// Run the plugin.
+			this.Log("Application: The plugin execution is starting.");
+			try {
+				((IPlugin)this.pluginList.SelectedItem).Run();
+			} catch (Exception exception) {
+				this.LogError(exception);
+			}
+			this.Log("Application: The plugin execution has ended.");
+
+			// Enable controls.
+			pluginRun.Enabled = true;
+			pluginList.Enabled = true;
+		} // PluginRunClick
+
+		/// <summary>
+		/// Appent the formatted text to the log.
+		/// </summary>
+		/// <param name="logFlags">The log flags.</param>
+		/// <param name="text">The log text.</param>
+		/// <param name="formattedText">The formatted log text.</param>
+		private void OnLogHandler(LoggerFlags logFlags, String text, String formattedText) {
+			// Append the formatted text to the log.
+			this.logText.AppendText(formattedText + Environment.NewLine);
+		} // OnLogHandler
 		#endregion
 
 		#region Abstract and Virtual methods.
