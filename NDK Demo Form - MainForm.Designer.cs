@@ -42,7 +42,7 @@
 			this.pluginPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.pluginPanel.Name = "pluginPanel";
 			this.pluginPanel.Padding = new System.Windows.Forms.Padding(4);
-			this.pluginPanel.Size = new System.Drawing.Size(784, 123);
+			this.pluginPanel.Size = new System.Drawing.Size(984, 123);
 			this.pluginPanel.TabIndex = 0;
 			this.pluginPanel.TabStop = false;
 			this.pluginPanel.Text = "Plugins";
@@ -50,7 +50,7 @@
 			// pluginRun
 			// 
 			this.pluginRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.pluginRun.Location = new System.Drawing.Point(672, 22);
+			this.pluginRun.Location = new System.Drawing.Point(872, 22);
 			this.pluginRun.Name = "pluginRun";
 			this.pluginRun.Size = new System.Drawing.Size(100, 23);
 			this.pluginRun.TabIndex = 1;
@@ -68,7 +68,7 @@
 			this.pluginList.ItemHeight = 16;
 			this.pluginList.Location = new System.Drawing.Point(4, 19);
 			this.pluginList.Name = "pluginList";
-			this.pluginList.Size = new System.Drawing.Size(662, 100);
+			this.pluginList.Size = new System.Drawing.Size(862, 100);
 			this.pluginList.TabIndex = 0;
 			// 
 			// logPanel
@@ -79,7 +79,7 @@
 			this.logPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.logPanel.Name = "logPanel";
 			this.logPanel.Padding = new System.Windows.Forms.Padding(4);
-			this.logPanel.Size = new System.Drawing.Size(784, 438);
+			this.logPanel.Size = new System.Drawing.Size(984, 438);
 			this.logPanel.TabIndex = 1;
 			this.logPanel.TabStop = false;
 			this.logPanel.Text = "Log";
@@ -95,7 +95,7 @@
 			this.logText.Margin = new System.Windows.Forms.Padding(4);
 			this.logText.Name = "logText";
 			this.logText.ReadOnly = true;
-			this.logText.Size = new System.Drawing.Size(776, 415);
+			this.logText.Size = new System.Drawing.Size(976, 415);
 			this.logText.TabIndex = 0;
 			this.logText.Text = "";
 			this.logText.WordWrap = false;
@@ -104,7 +104,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(784, 561);
+			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.logPanel);
 			this.Controls.Add(this.pluginPanel);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

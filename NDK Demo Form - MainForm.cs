@@ -11,7 +11,7 @@ using NDK.Framework;
 
 namespace NDK.DemoForm {
 
-	public partial class MainForm : PluginForm {
+	public partial class MainForm : BaseForm {
 
 		#region Constructors.
 		public MainForm() {
@@ -30,7 +30,7 @@ namespace NDK.DemoForm {
 			// Initialize the form.
 			this.OnLog += OnLogHandler;
 			this.pluginList.Format += this.PluginListFormat;
-			this.pluginList.DataSource = this.Plugins;
+			this.pluginList.DataSource = this.GetPlugins();
 
 			// Log.
 			this.Log("The form is initialized.");
